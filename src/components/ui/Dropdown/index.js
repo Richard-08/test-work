@@ -1,8 +1,17 @@
 import React, { useState, useRef } from "react";
+import PropTypes from "prop-types";
 import useClickOutside from "../../hooks/useClickOutside";
 
 import "./styles.scss";
 import Arrow from "../../../images/utils/arrow-down.svg";
+
+/**
+ * @description single select dropdown component
+ * @param {String} label dropdown label
+ * @param {Object} value selected|default value {id: 0, name: 'option'}
+ * @param {Array} data options data [{id: 0, name: 'option 1'}, {id: 1, name: 'option 2'}]
+ * @param {Function} handleChange handle change selected value
+ */
 
 export default function Dropdown({ label, value, data, handleChange }) {
   const dropdownRef = useRef();
@@ -26,7 +35,7 @@ export default function Dropdown({ label, value, data, handleChange }) {
   return (
     <div className={`dropdown ${open ? "open" : ""}`}>
       {label && (
-        <label id="dropdown__label" className="dropdown__label">
+        <label id={"dropdown__label" + label} className="dropdown__label">
           {label}
         </label>
       )}
@@ -37,8 +46,8 @@ export default function Dropdown({ label, value, data, handleChange }) {
           aria-expanded={open}
           aria-controls="listbox1"
           aria-haspopup="listbox"
-          aria-labelledby="dropdown__label"
-          id="dropdown__label"
+          aria-labelledby={"dropdown__label" + label}
+          id={"dropdown__label" + label}
           role="combobox"
           tabIndex="0"
           onClick={toggleOpen}
@@ -48,7 +57,7 @@ export default function Dropdown({ label, value, data, handleChange }) {
         </button>
         <ul
           className="dropdown__menu"
-          aria-labelledby="dropdown__label"
+          aria-labelledby={"dropdown__label" + label}
           role="listbox"
           tabIndex="-1"
         >
@@ -60,7 +69,7 @@ export default function Dropdown({ label, value, data, handleChange }) {
               className="dropdown__item"
               onClick={(e) => handleOption(item, e)}
             >
-              <a className="dropdown__link" href="#">
+              <a className="dropdown__link" href="#" tabIndex={open ? 0 : -1}>
                 {item.name}
               </a>
             </li>
@@ -70,3 +79,10 @@ export default function Dropdown({ label, value, data, handleChange }) {
     </div>
   );
 }
+
+Dropdown.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.object,
+  data: PropTypes.array,
+  handleChange: PropTypes.func,
+};

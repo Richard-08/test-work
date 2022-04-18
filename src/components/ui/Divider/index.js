@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import './styles.scss';
 
 export default function Divider() {
-  return (
-    <div>Divider</div>
-  )
+  return <hr className="divider" />;
 }

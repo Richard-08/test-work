@@ -99,5 +99,9 @@ $item-hover: $border-color;
     &:hover {
       background-color: $item-hover;
     }
+
+    &:focus {
+      background-color: $item-hover;
+    }
   }
 }

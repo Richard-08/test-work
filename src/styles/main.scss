@@ -29,4 +29,10 @@ button,
 input,
 a {
   font-family: inherit;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $focus;
+    transition: box-shadow 0.1s;
+  }
 }

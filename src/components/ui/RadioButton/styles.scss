@@ -1,0 +1,61 @@
+@import "../../../styles/colors";
+
+.radio {
+  &__input {
+    &:checked,
+    &:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    &:checked + .radio__label,
+    &:not(:checked) + .radio__label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+    }
+
+    &:checked + .radio__label:before,
+    &:not(:checked) + .radio__label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border: 1.3px solid $primary;
+      border-radius: 100%;
+      background: #fff;
+    }
+
+    &:checked + .radio__label:after,
+    &:not(:checked) + .radio__label:after {
+      content: "";
+      width: 9px;
+      height: 9px;
+      background-color: $primary;
+      position: absolute;
+      top: 4.5px;
+      left: 4.5px;
+      border-radius: 100%;
+      transition: all 0.2s ease;
+    }
+
+    &:not(:checked) + .radio__label:after {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    &:checked + .radio__label:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &__label {
+    color: $primary;
+  }
+}

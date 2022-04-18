@@ -1,0 +1,54 @@
+@import "../../../styles/colors";
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    outline: 1px solid $primary-dark;
+  }
+
+  &:focus + label:before {
+    box-shadow: 0 0 0 3px $focus;
+    transition: box-shadow 0.2s ease-out;
+  }
+
+  &:checked + label:before {
+    background-color: $primary;
+    outline: none;
+  }
+
+  &:disabled + label {
+    color: #ccc;
+    cursor: auto;
+  }
+
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ccc;
+  }
+
+  &:checked + label:after {
+    content: url("../../../images/utils/check.svg");
+    position: absolute;
+    left: 2px;
+    top: -4px;
+  }
+}
+
+label {
+  user-select: none;
+}

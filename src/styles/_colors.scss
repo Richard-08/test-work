@@ -1,11 +1,13 @@
 // Common
 $primary: #e16d4d;
+$primary-dark: #666276;
+$focus: rgba(0, 0, 0, 0.12);
 
 // Borders
 $border-color: #efecf3;
 
 // Typography
-$text-primary: #666276;
+$text-primary: $primary-dark;
 $text-secondary: #454056;
 
 // Divider
