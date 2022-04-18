@@ -1,0 +1,103 @@
+@import "../../../styles/colors";
+@import "../../../styles/constants";
+
+$btn-padding: 8px 18px;
+$btn-color: #fff;
+$font-size: 14px;
+$menu-color: #fff;
+$item-hover: $border-color;
+
+.dropdown {
+  max-width: 100%;
+  width: 100%;
+
+  &.open {
+    .dropdown__menu {
+      //display: block;
+      pointer-events: all;
+      transform: scaleY(1);
+      opacity: 1;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+      z-index: 100;
+    }
+
+    .dropdown__btn {
+      border-radius: $border-radius $border-radius 0 0;
+    }
+
+    .dropdown__btn-arrow {
+      transform: rotateZ(180deg);
+      transition: transform 0.2s ease-out;
+    }
+  }
+
+  &__label {
+    color: $text-secondary;
+  }
+
+  &__container {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  &__btn {
+    max-width: 100%;
+    width: 100%;
+    padding: $btn-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $font-size;
+    color: $text-primary;
+    border: 1px solid $border-color;
+    background-color: $btn-color;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  &__btn-arrow {
+    transform: rotateZ(0);
+    transition: transform 0.2s ease-in;
+  }
+
+  &__menu {
+    background-color: $menu-color;
+    border: 1px solid $border-color;
+    border-radius: 0 0 $border-radius $border-radius;
+    //display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+    }
+
+    &[aria-selected="true"] {
+      background-color: $item-hover;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 12px 12px;
+    color: $text-primary;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $item-hover;
+    }
+  }
+}

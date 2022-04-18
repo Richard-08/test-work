@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Dropdown from "./components/ui/Dropdown";
+
+const DATA = [
+  {
+    id: 0,
+    name: "Option 1",
+  },
+  {
+    id: 1,
+    name: "Option 2",
+  },
+  {
+    id: 2,
+    name: "Option 3",
+  },
+  {
+    id: 3,
+    name: "Option 4",
+  },
+  {
+    id: 4,
+    name: "Option 5",
+  },
+  {
+    id: 5,
+    name: "Option 6",
+  },
+  {
+    id: 6,
+    name: "Option 7",
+  },
+  {
+    id: 7,
+    name: "Option 8",
+  },
+];
 
 function App() {
+  const [printing, setPrinting] = useState(DATA[0]);
+
+  const handleChange = (value) => {
+    setPrinting(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ maxWidth: "400px", margin: "0 auto", padding: "20px" }}>
+      <Dropdown
+        label="Printing house"
+        value={printing}
+        data={DATA}
+        handleChange={handleChange}
+      />
     </div>
   );
 }
