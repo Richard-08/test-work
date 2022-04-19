@@ -1,0 +1,9 @@
+@import "../colors";
+
+.link {
+  text-decoration: underline;
+
+  &_primary {
+    color: $link;
+  }
+}

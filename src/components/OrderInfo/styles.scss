@@ -1,0 +1,30 @@
+@import "../../styles/colors";
+
+.order-info {
+  margin: 30px 0;
+  
+  &__information {
+  }
+
+  &__list {
+  }
+
+  &__title {
+    color: $primary;
+    font-weight: 500;
+  }
+
+  &__adresses {
+    padding-top: 16px;
+
+    .order-info__list {
+      .row {
+        &:last-child {
+          .info-item {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}

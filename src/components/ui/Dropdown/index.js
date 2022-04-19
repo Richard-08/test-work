@@ -13,7 +13,13 @@ import Arrow from "../../../images/utils/arrow-down.svg";
  * @param {Function} handleChange handle change selected value
  */
 
-export default function Dropdown({ label, value, data, handleChange }) {
+export default function Dropdown({
+  className = "",
+  label,
+  value,
+  data,
+  handleChange,
+}) {
   const dropdownRef = useRef();
   const [open, setOpen] = useState(false);
 
@@ -33,7 +39,7 @@ export default function Dropdown({ label, value, data, handleChange }) {
   };
 
   return (
-    <div className={`dropdown ${open ? "open" : ""}`}>
+    <div className={`dropdown ${open ? "open" : ""} ${className}`}>
       {label && (
         <label id={"dropdown__label" + label} className="dropdown__label">
           {label}
@@ -81,6 +87,7 @@ export default function Dropdown({ label, value, data, handleChange }) {
 }
 
 Dropdown.propTypes = {
+  className: PropTypes.string,
   label: PropTypes.string,
   value: PropTypes.object,
   data: PropTypes.array,

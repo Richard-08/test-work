@@ -1,11 +1,30 @@
-@import "./colors";
-@import "./constants";
-@import "./fonts";
+@import "./colors.scss";
+@import "./constants.scss";
+@import "./fonts.scss";
+@import "./layout.scss";
+@import "./ui/buttons.scss";
+@import "./ui/links.scss";
+@import "./ui/inputs.scss";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
 body {
@@ -14,6 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: $font-size;
   font-weight: normal;
+  color: $text-primary;
 }
 
 ol,

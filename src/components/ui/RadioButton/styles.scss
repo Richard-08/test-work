@@ -15,7 +15,6 @@
       cursor: pointer;
       line-height: 20px;
       display: inline-block;
-      color: #666;
     }
 
     &:checked + .radio__label:before,
@@ -28,7 +27,7 @@
       height: 16px;
       border: 1.3px solid $primary;
       border-radius: 100%;
-      background: #fff;
+      background-color: #fff;
     }
 
     &:checked + .radio__label:after,
@@ -38,8 +37,8 @@
       height: 9px;
       background-color: $primary;
       position: absolute;
-      top: 4.5px;
-      left: 4.5px;
+      top: 22.5%;
+      left: 2.03%;
       border-radius: 100%;
       transition: all 0.2s ease;
     }
@@ -52,6 +51,11 @@
     &:checked + .radio__label:after {
       opacity: 1;
       transform: scale(1);
+    }
+
+    &:focus + .radio__label:before {
+      box-shadow: 0 0 0 3px $focus;
+      transition: box-shadow 0.2s ease-out;
     }
   }
 

@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 580px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

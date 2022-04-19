@@ -1,0 +1,14 @@
+@import "./colors.scss";
+@import "./constants.scss";
+
+.block {
+  padding: 30px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+}
+
+@media (max-width: 768px) {
+  .block {
+    padding: 15px;
+  }
+}
